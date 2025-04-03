@@ -2,14 +2,14 @@
   "type": "module",
   "name": "mcp-server-superset",
   "version": "1.0.0",
-  "main": "index.js",
-  "bin": {
-    "superset": "./build/index.js"
-  },
+  "main": "build/index.js",
+  "bin": "./build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "example": "ts-node src/examples/superset-example.ts",
-    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "prebuild": "rm -rf build",
+    "build": "tsc && echo '#!/usr/bin/env node' | cat - build/index.js > temp && mv temp build/index.js && chmod +x build/index.js",
+    "postbuild": "npm link",
     "inspector": "npm run build && npx @modelcontextprotocol/inspector node build/index.js"
   },
   "files": [
