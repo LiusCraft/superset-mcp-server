@@ -19,6 +19,18 @@
 
 ## 快速开始
 
+### 直接使用
+
+```bash
+npx -y https://github.com/LiusCraft/superset-mcp-server
+
+SUPERSET_URL
+SUPERSET_USERNAME
+SUPERSET_PASSWORD
+
+鉴权方式：ladp
+```
+
 ### 安装依赖
 
 ```bash
